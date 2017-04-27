@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('search');
+  this.route('serie-detail');
 });
 
 export default Router;
