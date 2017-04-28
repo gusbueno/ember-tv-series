@@ -1,7 +1,9 @@
 <h2>serie list</h2>
 <section class="serie-list">
     <ul class="list-group">
-        
+        {{#each series as |serie|}}
+            <li>{{serie.name}}</li>
+        {{/each}}
     </ul>
 </section>
 {{yield}}
