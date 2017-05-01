@@ -19,12 +19,17 @@ export default Ember.Service.extend({
         let request = this.get('ajax').request(`${this.get('baseUrl')}?api_key=${this.get('apiKey')}&language=en-US&query=${term}`);
 
         request.then((payload) => {
-            console.log(payload);
+            //console.log(payload);
             //let payloadPromise = this.get('store').pushPayload('serie', payload.results);
             //return payloadPromise;
             //this.get('store').pushPayload({series: payload.results});
             //return payload.results;
-            this.get('store').pushPayload(payload);
+            /*
+            payload['series'] = [...payload.results];
+            delete payload.results;
+            console.log(payload);*/
+
+            this.get('store').pushPayload('serie', payload);
         });
         //this.get('store').pushPayload(request);
         //return request;
