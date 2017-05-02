@@ -1,0 +1,17 @@
+<section class="search-bar">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
+                {{input value=value
+                    key-up=(action 'handleSearch')
+                    class="form-control"
+                    placeholder="Search"}}
+                <!-- <input type="text" class="form-control" autofocus="true" placeholder="Search"/> -->
+            </div>
+        </div>
+    </div>
+</section>
+{{yield}}

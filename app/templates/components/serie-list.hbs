@@ -1,0 +1,22 @@
+<section class="serie-list">
+    <ul class="list-group">
+        {{#each series as |serie|}}
+            <li class="list-group-item" id="{{serie.id}}" {{action "gotoSerieDetail" serie}}>
+                <div class="row">
+                    <div class="col-md-1">
+                        {{#if serie.poster_path}}
+                            <img src="https://image.tmdb.org/t/p/w45_and_h67_bestv2{{serie.poster_path}}" alt="{{serie.name}}"/>
+                        {{else}}
+                            <div class="no-image text-center"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></div>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-11">
+                        <div class="col-md-12 lead">{{serie.name}}</div>
+                        <div class="col-md-12">{{serie.first_air_date}}</div>
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</section>
+{{yield}}
