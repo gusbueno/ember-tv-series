@@ -1,2 +1,18 @@
-<h2>Serie detail</h2>
-{{outlet}}
+<div class="container serie-detail">
+    <section class="row">
+        <ul class="back">
+            <li>{{#link-to "index"}}{{'< Back'}}{{/link-to}}</li>
+        </ul>
+    </section>
+    <section class="col-md-3 poster-image">
+        <!-- condition poster_path -->
+    </section>
+    <section class="col-md-9 serie-info">
+        <!-- info: name, first_air_date, number_of_episodes, number_of_seasons, overview, genres -->
+        {{serie-info info=model}}
+    </section>
+    <section className="col-md-12 serie-seasons">
+        <!-- condition: load season-list component if there are seasons -->
+    </section>
+    {{outlet}}
+</div>

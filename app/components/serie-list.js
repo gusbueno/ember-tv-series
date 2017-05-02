@@ -7,6 +7,8 @@ export default Ember.Component.extend({
         console.log(this.get('series'));
     },
 
+    onGotoSerieDetail: 'gotoSerieDetail',
+
     actions: {
         gotoSerieDetail(serie) {
             this.sendAction('onGotoSerieDetail', serie);
