@@ -14,5 +14,9 @@ export default Ember.Route.extend({
             console.log(term);
             this.get('seriesService').getSeriesFromAPI(term);
         }, 300),
+
+        gotoSerieDetail(serie) {
+            this.get('router').transitionTo('serie-detail', serie.get('id'));
+        }
     }
 });
