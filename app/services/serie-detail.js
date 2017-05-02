@@ -15,7 +15,7 @@ export default Ember.Service.extend({
     getSerieDetailFromAPI(serie_id) {
         let request = this.get('ajax').request(`${this.get('baseUrl')}/${serie_id}?api_key=${this.get('apiKey')}&language=en-US`);
 
-        //this.get('store').unloadAll('serie-detail');
+        this.get('store').unloadAll('serie-detail');
         return request.then((payload) => {
             this.get('store').pushPayload('serie-detail', payload);
         }).catch((err) => {

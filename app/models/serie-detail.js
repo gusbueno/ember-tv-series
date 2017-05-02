@@ -8,8 +8,9 @@ export default DS.Model.extend({
     poster_path: DS.attr('string'),
     number_of_episodes: DS.attr('number'),
     number_of_seasons: DS.attr('number'),
+    genres: DS.hasMany('genre'),
     /*
-    genres: DS.hasMany(),
+
     seasons: DS.hasMany()
     */
 });

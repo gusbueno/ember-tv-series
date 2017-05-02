@@ -4,6 +4,6 @@ export default Ember.Component.extend({
 
     init() {
         this._super(...arguments);
-        console.log(this.get('info'));
+        //console.log(this.get('info'));
     },
 });

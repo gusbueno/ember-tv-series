@@ -15,10 +15,16 @@ export default DS.JSONAPISerializer.extend({
                     "poster-path": payload.poster_path,
                     "number-of-episodes": payload.number_of_episodes,
                     "number-of-seasons": payload.number_of_seasons,
+                    //"genre": payload.genres,
                     /*
-                    "genres": payload.genres,
+
                     "seasons": payload.seasons
                     */
+                }
+            },
+            relationships: {
+                genre: {
+                    data: payload.genres
                 }
             }
         };

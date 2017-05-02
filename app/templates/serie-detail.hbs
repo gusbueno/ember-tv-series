@@ -6,12 +6,19 @@
     </section>
     <section class="col-md-3 poster-image">
         <!-- condition poster_path -->
+        {{#if model.poster_path}}
+            <img src="https://image.tmdb.org/t/p/w500{{model.poster_path}}" class="img-responsive" alt="{{model.name}}"/>
+        {{else}}
+            <div class="no-image text-center">
+                <span class="lead">NO IMAGE</span>
+            </div>
+        {{/if}}
     </section>
     <section class="col-md-9 serie-info">
         <!-- info: name, first_air_date, number_of_episodes, number_of_seasons, overview, genres -->
         {{serie-info info=model}}
     </section>
-    <section className="col-md-12 serie-seasons">
+    <section class="col-md-12 serie-seasons">
         <!-- condition: load season-list component if there are seasons -->
     </section>
     {{outlet}}
