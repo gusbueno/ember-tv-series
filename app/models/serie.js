@@ -1,8 +1,6 @@
 import DS from 'ember-data';
-//import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
-    //id: DS.attr('number'),
     poster_path: DS.attr('string'),
     popularity: DS.attr('number'),
     backdrop_path: DS.attr('string'),
