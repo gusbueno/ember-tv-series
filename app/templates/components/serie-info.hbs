@@ -13,8 +13,10 @@
 </div>
 <div class="col-md-12 genres">
     <div class="col-md-12 bold">Genres:</div>
-    <div class="col-md-12">
-
+    <div className="col-md-12">
+        {{#each info.genres as |genre index| }}
+            <span class="gen" id="{{genre.id}}">{{genre.name}}</span>
+        {{/each}}
     </div>
 </div>
 {{yield}}
