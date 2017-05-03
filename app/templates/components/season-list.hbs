@@ -1,0 +1,20 @@
+{{#if seasons}}
+    <ul>
+    {{#each seasonsWithoutZero as |season|}}
+            <li class="list-group-item" id="{{season.id}}" {{action "gotoSeasonDetail" season}}>
+                <div class="row">
+                    <div class="col-md-4 season-number">
+                        <span class="bold">Season {{season.season_number}}</span>
+                    </div>
+                    <div class="col-md-4 episodes">
+                        <span class="bold">Episodes:</span> {{season.episode_count}}
+                    </div>
+                    <div class="col-md-4 date">
+                        <span class="bold">Air date:</span> {{season.air_date}}
+                    </div>
+                </div>
+            </li>
+    {{/each}}
+    </ul>
+{{/if}}
+{{yield}}

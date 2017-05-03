@@ -3,6 +3,7 @@ import DS from 'ember-data';
 export default DS.JSONAPISerializer.extend({
 
     pushPayload(store, payload) {
+        debugger;
         let included = [];
         payload.genres.map((genre) => {
 
@@ -13,6 +14,18 @@ export default DS.JSONAPISerializer.extend({
             delete genre["name"];
             return genre;
         });
+
+        payload.seasons.map((season) => {
+
+            included.push({ "id": season.id, "type": "season", "attributes": { "air-date": season.air_date, "episode-count": season.episode_count, "poster-path": season.poster_path, "season-number": season.season_number } });
+
+            season["type"] = "season";
+            delete season["air_date"];
+            delete season["episode_count"];
+            delete season["poster_path"];
+            delete season["season_number"];
+            return season;
+        })
 
         let json = {
             "data": {
@@ -31,6 +44,9 @@ export default DS.JSONAPISerializer.extend({
                 "relationships": {
                     "genres": {
                         "data": payload.genres
+                    },
+                    "seasons": {
+                        "data": payload.seasons
                     }
                 }
 
@@ -38,7 +54,6 @@ export default DS.JSONAPISerializer.extend({
             "included": included
         };
 
-        debugger;
         console.log(json);
         return this._super(store, json);
     }
