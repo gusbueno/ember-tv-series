@@ -20,7 +20,7 @@
     </section>
     <section class="col-md-12 serie-seasons">
         <!-- condition: load season-list component if there are seasons -->
-        {{season-list seasons=model.seasons}}
+        {{season-list seasons=model.seasons onGotoSeasonDetail="gotoSeasonDetail"}}
     </section>
     {{outlet}}
 </div>

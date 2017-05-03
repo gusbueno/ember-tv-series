@@ -16,7 +16,7 @@ export default Ember.Route.extend({
 
     actions: {
         gotoSeasonDetail(season) {
-            console.log(season.get('season_number'))
+            this.transitionTo('season-detail', this.get('serie_id'), season.get('season_number'));
         }
     }
 });

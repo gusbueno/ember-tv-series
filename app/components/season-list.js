@@ -10,6 +10,8 @@ export default Ember.Component.extend({
     }),
 
     actions: {
-        gotoSeasonDetail() {}
+        gotoSeasonDetail(season) {
+            this.sendAction("onGotoSeasonDetail", season);
+        }
     }
 });

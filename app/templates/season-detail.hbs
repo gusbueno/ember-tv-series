@@ -1,0 +1,47 @@
+<div class="container season-detail">
+    <section class="row">
+        <ul class="back">
+            <li>
+                <button type="button" name="button" class="btn btn-link" {{action 'goToSerieDetail'}}> {{'< Back'}}</button>
+            </li>
+        </ul>
+    </section>
+    <section class="col-md-3 poster-image">
+        {{#if model.poster_path}}
+            <img src="https://image.tmdb.org/t/p/w500{{model.poster_path}}" class="img-responsive" alt="{{model.name}}"/>
+        {{else}}
+            <div class="no-image text-center">
+                <span class="lead">NO IMAGE</span>
+            </div>
+        {{/if}}
+    </section>
+    <section class="col-md-9 season-info">
+        <h2>{{model.name}} <span class="lead">({{model.air_date}})</span></h2>
+        <div class="col-md-12">
+            <div class="lead bold">Overview</div>
+            <p>{{model.overview}}</p>
+        </div>
+    </section>
+    <section class="col-md-12 season-episodes">
+        {{#if model.episodes}}
+        <div class="lead bold">Episodes</div>
+            <ul class="list-group">
+                {{#each model.episodes as |episode|}}
+                <li class="list-group-item" key={episode.id}>
+                    <div class="row">
+                        <div class="col-md-2 episode-number">
+                            <span class="bold">Episode {{episode.episode_number}}</span>
+                        </div>
+                        <div class="col-md-8 episodes-name">
+                            <span class="bold">Name:</span> {{episode.name}}
+                        </div>
+                        <div class="col-md-2 date">
+                            <span class="bold">Air date:</span> {{episode.air_date}}
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </section>
+</div>
