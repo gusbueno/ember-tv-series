@@ -1,2 +1,26 @@
-<h2>Serie detail</h2>
-{{outlet}}
+<div class="container serie-detail">
+    <section class="row">
+        <ul class="back">
+            <li>{{#link-to "index"}}{{'< Back'}}{{/link-to}}</li>
+        </ul>
+    </section>
+    <section class="col-md-3 poster-image">
+        <!-- condition poster_path -->
+        {{#if model.poster_path}}
+            <img src="https://image.tmdb.org/t/p/w500{{model.poster_path}}" class="img-responsive" alt="{{model.name}}"/>
+        {{else}}
+            <div class="no-image text-center">
+                <span class="lead">NO IMAGE</span>
+            </div>
+        {{/if}}
+    </section>
+    <section class="col-md-9 serie-info">
+        <!-- info: name, first_air_date, number_of_episodes, number_of_seasons, overview, genres -->
+        {{serie-info info=model}}
+    </section>
+    <section class="col-md-12 serie-seasons">
+        <!-- condition: load season-list component if there are seasons -->
+        {{season-list seasons=model.seasons}}
+    </section>
+    {{outlet}}
+</div>

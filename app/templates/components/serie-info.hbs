@@ -1,0 +1,22 @@
+<h2>{{info.name}} <span class="lead">({{info.first_air_date}})</span></h2>
+<div class="col-md-6 episodes">
+    <div class="col-md-3 bold">Episodes:</div>
+    <div class="col-md-9">{{info.number_of_episodes}}</div>
+</div>
+<div class="col-md-6 seasons">
+    <div class="col-md-3 bold">Seasons:</div>
+    <div class="col-md-9">{{info.number_of_seasons}}</div>
+</div>
+<div class="col-md-12">
+    <div class="lead bold">Overview</div>
+    <p>{{info.overview}}</p>
+</div>
+<div class="col-md-12 genres">
+    <div class="col-md-12 bold">Genres:</div>
+    <div className="col-md-12">
+        {{#each info.genres as |genre index| }}
+            <span class="gen" id="{{genre.id}}">{{genre.name}}</span>
+        {{/each}}
+    </div>
+</div>
+{{yield}}
